@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity & Muse AI ゲーム開発講座 リンク集</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- デザイン設定 --- */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #00ff9b; /* ネオングリーン */
+            --secondary-color: #8a2be2; /* ネオンパープル */
+            --border-color: #333;
+            --shadow-color: rgba(0, 255, 155, 0.2);
+            --font-primary: 'Orbitron', sans-serif;
+            --font-secondary: 'Zen Kaku Gothic New', sans-serif;
+        }
+
+        /* --- 基本スタイル --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-secondary);
+            line-height: 1.7;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- ヘッダー --- */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--shadow-color), 0 0 20px var(--shadow-color);
+            margin-bottom: 10px;
+        }
+
+        header h1 span {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            text-shadow: none;
+            margin-top: 10px;
+        }
+
+        /* --- カード型リンク --- */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card-link {
+            text-decoration: none;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card:hover:before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 255, 155, 0.1);
+            border-radius: 8px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: #aaa;
+            flex-grow: 1; /* アイコンとタイトル以外の残りのスペースを埋める */
+        }
+        
+        /* --- レスポンシブ対応 --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>UnityとUnity Muse AIを活用したゲーム開発講座
+                <span>🔸2025.7.12開催🔸リンク集</span>
+            </h1>
+        </header>
+
+        <main class="cards-container">
+            <!-- Unity Hub & Muse Animate ガイド -->
+            <a href="unity-hub-muse-animate-guide.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-person-running"></i></div>
+                    <h2 class="card-title">Unity Hub &amp; Muse Animate活用ガイド</h2>
+                    <p class="card-description">Unity Hubの導入から、AIによるアニメーション作成までを丁寧に解説します。</p>
+                </div>
+            </a>
+            
+            <!-- Muse Texture 環境構築ガイド -->
+            <a href="muse-texture-setup-guide.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h2 class="card-title">Muse Texture 環境構築ガイド</h2>
+                    <p class="card-description">AIによるテクスチャ生成のための環境設定を分かりやすくガイドします。</p>
+                </div>
+            </a>
+
+            <!-- AI活用 ゲーム開発入門ガイド -->
+            <a href="unity-ai-game-dev-intro-guide.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h2 class="card-title">AI活用 ゲーム開発入門ガイド</h2>
+                    <p class="card-description">AIツールを使って、コンテンツ制作を効率化するゲーム開発入門編です。</p>
+                </div>
+            </a>
+
+            <!-- AIセミナー 実況解説ガイド -->
+            <a href="unity-ai-seminar-guide.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                    <h2 class="card-title">AIセミナー 実況解説ガイド</h2>
+                    <p class="card-description">セミナー当日の流れや質疑応答をまとめた、実践的な解説ドキュメントです。</p>
+                </div>
+            </a>
+
+            <!-- アニメーションフレーム完全攻略ガイド -->
+            <a href="unity-animation-frame-guide.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+                    <h2 class="card-title">アニメーションフレーム完全攻略ガイド</h2>
+                    <p class="card-description">アニメーションの基本「フレーム」の概念から実践までを徹底解説します。</p>
+                </div>
+            </a>
+
+            <!-- アニメーションクリップ活用ガイド -->
+            <a href="unity-animation-clip-guide.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-folder-open"></i></div>
+                    <h2 class="card-title">アニメーションクリップ活用ガイド</h2>
+                    <p class="card-description">既存のアニメーションデータを効率的に活用するワークフローを学びます。</p>
+                </div>
+            </a>
+
+            <!-- Unity対応Mac 価格完全ガイド -->
+            <a href="unity-compatible-mac-price-guide.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-brands fa-apple"></i></div>
+                    <h2 class="card-title">Unity対応Mac 価格完全ガイド</h2>
+                    <p class="card-description">Unity開発に最適なMacのスペックと価格を徹底比較・解説します。</p>
+                </div>
+            </a>
+
+            <!-- 講座の感想 -->
+            <a href="kansou.html" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h2 class="card-title">講座の感想</h2>
+                    <p class="card-description">参加者の皆様からの貴重なご意見やご感想をまとめたページです。</p>
+                </div>
+            </a>
+            
+        </main>
+    </div>
+</body>
+</html>
 

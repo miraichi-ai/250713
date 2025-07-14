@@ -1,0 +1,1200 @@
+<!DOCTYPE html><html lang="ja"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity対応Mac価格完全ガイド</title>
+    
+    <!-- Mermaid.js の読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'base',
+                securityLevel: 'loose',
+                fontFamily: '"Kaisei Decol", sans-serif',
+                themeVariables: {
+                    primaryColor: '#3F77BF',
+                    primaryTextColor: '#fff',
+                    primaryBorderColor: '#F2798F',
+                    lineColor: '#34BFBF',
+                    secondaryColor: '#F2C641',
+                    tertiaryColor: '#F2D1CE'
+                },
+                flowchart: {
+                    cornerRadius: 15,
+                    curve: 'cardinal',
+                    htmlLabels: true
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        :root {
+            --main-color: #4CAF50;
+            --accent-1: #9575CD;
+            --accent-2: #FFC107;
+            --accent-3: #009688;
+            --accent-4: #E91E63;
+            --bg-color: #FAFAFA;
+            --text-dark: #333;
+            --text-light: #666;
+            --card-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            --border-radius: 18px;
+            --golden-ratio: 1.618;
+            --price-green: #4CAF50;
+            --price-blue: #2196F3;
+            --price-orange: #FF9800;
+            --price-red: #F44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e8f5e8 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: calc(var(--border-radius) * var(--golden-ratio));
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-3) 100%);
+            color: white;
+            padding: calc(40px * var(--golden-ratio));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before,
+        .header::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .header::before {
+            top: -30px;
+            left: -30px;
+        }
+
+        .header::after {
+            bottom: -30px;
+            right: -30px;
+        }
+
+        .header-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: calc(3em / var(--golden-ratio));
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .overview {
+            background: linear-gradient(45deg, var(--accent-2) 0%, #fff8dc 100%);
+            padding: calc(30px * var(--golden-ratio));
+            margin: 30px;
+            border-radius: var(--border-radius);
+            border-left: 10px solid var(--accent-2);
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .overview::before {
+            content: '💰';
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 2.5em;
+        }
+
+        .price-workflow {
+            margin: 40px 20px;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .section {
+            padding: calc(35px * var(--golden-ratio));
+            border-bottom: 3px solid #f0f0f0;
+            position: relative;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: calc(30px * var(--golden-ratio));
+            padding-bottom: 25px;
+            border-bottom: 5px solid var(--main-color);
+            position: relative;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, var(--main-color), var(--accent-3));
+            color: white;
+            width: calc(60px * var(--golden-ratio));
+            height: calc(60px * var(--golden-ratio));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-right: 25px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: calc(2em * var(--golden-ratio));
+            color: var(--main-color);
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-3) 100%);
+            color: white;
+            padding: calc(25px * var(--golden-ratio));
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .conclusion-box::before {
+            content: '🎯';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 1.8em;
+        }
+
+        .background-box {
+            background: linear-gradient(135deg, var(--accent-1) 0%, #e8d8f5 100%);
+            color: white;
+            padding: calc(25px * var(--golden-ratio));
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .background-box::before {
+            content: '📊';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.8em;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, var(--accent-2) 0%, #fff8dc 100%);
+            border: 4px solid var(--accent-2);
+            border-radius: var(--border-radius);
+            padding: calc(25px * var(--golden-ratio));
+            margin: 30px 0;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .example-box::before {
+            content: '💻';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.8em;
+            color: var(--accent-2);
+        }
+
+        .metaphor-box {
+            background: linear-gradient(135deg, var(--accent-4) 0%, #fce8f3 100%);
+            color: white;
+            padding: calc(25px * var(--golden-ratio));
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            border-left: 10px solid var(--accent-4);
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .metaphor-box::before {
+            content: '💡';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.8em;
+        }
+
+        .price-card {
+            background: white;
+            border: 4px solid var(--accent-3);
+            border-radius: var(--border-radius);
+            padding: calc(25px * var(--golden-ratio));
+            margin: 25px 0;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--price-green), var(--price-blue));
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .price-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .model-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, var(--price-green), var(--accent-3));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .spec-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--accent-3);
+            transition: background 0.3s ease;
+        }
+
+        .spec-item:hover {
+            background: var(--accent-3);
+            color: white;
+        }
+
+        .spec-label {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .spec-value {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .spec-item:hover .spec-label,
+        .spec-item:hover .spec-value {
+            color: white;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin: 30px 0;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--main-color), var(--accent-3));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+        }
+
+        .table-row:hover {
+            background: #f8f9fa;
+        }
+
+        .model-cell {
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .price-cell {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--price-green);
+        }
+
+        .rating-stars {
+            color: var(--accent-2);
+            font-size: 1.2em;
+        }
+
+        .student-discount {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            border: 4px solid var(--price-blue);
+            border-radius: var(--border-radius);
+            padding: calc(25px * var(--golden-ratio));
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .student-discount::before {
+            content: '🎓';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2em;
+        }
+
+        .discount-amount {
+            background: var(--price-blue);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .performance-chart {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .chart-label {
+            width: 150px;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .chart-progress {
+            flex: 1;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+
+        .chart-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .chart-fill.excellent { background: linear-gradient(90deg, var(--price-green), #66bb6a); }
+        .chart-fill.good { background: linear-gradient(90deg, var(--price-blue), #42a5f5); }
+        .chart-fill.fair { background: linear-gradient(90deg, var(--accent-2), #ffca28); }
+        .chart-fill.poor { background: linear-gradient(90deg, var(--price-orange), #ffa726); }
+
+        .chart-value {
+            width: 60px;
+            text-align: right;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: calc(30px * var(--golden-ratio));
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .recommendation-box::before {
+            content: '👑';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 2em;
+        }
+
+        .recommendation-box::after {
+            content: '⭐';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4em;
+            }
+        }
+
+        .final-summary {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-3) 50%, var(--accent-1) 100%);
+            color: white;
+            padding: calc(50px * var(--golden-ratio));
+            text-align: center;
+            position: relative;
+        }
+
+        .final-summary::before {
+            content: '🏆';
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-size: 2.5em;
+        }
+
+        .final-summary::after {
+            content: '🚀';
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.5em;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, var(--accent-2), #fff9c4);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 2px;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="header-icon">💻</span>
+            <h1>Unity対応Mac価格完全ガイド</h1>
+            <p>推奨スペック対応モデルの価格帯と最適な選択基準</p>
+        </header>
+
+        <div class="overview">
+            <h2>📋 Unity開発用Mac選択の全体像</h2>
+            <p>Unity開発の推奨スペック（16GB RAM、512GB SSD、Metal対応GPU）を満たすMacの価格帯は<span class="highlight">13.2万円〜20万円台</span>となります。学割適用で1-2万円の削減も可能で、用途とスキルレベルに応じた最適な投資判断ができるよう詳しく解説します。</p>
+        </div>
+
+        <div class="price-workflow">
+            <h3>🗺️ Unity対応Mac価格・性能マップ</h3>
+            <div class="mermaid">
+                flowchart TD
+                    A["🎯 Unity推奨スペック確認"] --&gt; B["💰 予算設定"]
+                    B --&gt; C["📊 用途別カテゴリ選択"]
+                    
+                    C --&gt; D1["📚 学習・趣味開発<br>13-14万円台"]
+                    C --&gt; D2["🚀 本格個人開発<br>17-18万円台"]
+                    C --&gt; D3["💼 プロ・商用開発<br>20万円台以上"]
+                    
+                    D1 --&gt; E1["MacBook Air M3<br>16GB/256GB<br>約13.2万円"]
+                    D1 --&gt; E2["MacBook Air M4<br>16GB/256GB<br>約14.2万円"]
+                    
+                    D2 --&gt; F1["MacBook Air M4<br>16GB/512GB<br>約17.3万円"]
+                    D2 --&gt; F2["MacBook Air M3 15\"<br>16GB/512GB<br>約18.5万円"]
+                    
+                    D3 --&gt; G1["MacBook Pro M4<br>16GB/512GB<br>約20.9万円"]
+                    D3 --&gt; G2["カスタマイズモデル<br>32GB/1TB<br>30-40万円台"]
+                    
+                    H["🎓 学割適用<br>1-2万円削減"] --&gt; D1
+                    H --&gt; D2
+                    H --&gt; D3
+                    
+                    style A fill:#4CAF50,stroke:#333,stroke-width:3px,color:#fff
+                    style F1 fill:#F2C641,stroke:#333,stroke-width:3px
+                    style E1 fill:#34BFBF,stroke:#333,stroke-width:2px,color:#fff
+                    style G1 fill:#F2798F,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">Unity推奨スペックを満たすMacの最低価格帯：13-14万円台</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> Unity開発の最低要件（16GB RAM、Metal対応GPU）を満たすMacは、約13.2万円から購入可能で、基本的な開発作業には十分な性能を提供します。
+            </div>
+
+            <div class="background-box">
+                <h3>🎯 メモリ16GBが解決する問題</h3>
+                <p>Unity開発では、メモリ不足が最も深刻なボトルネックとなります。従来の8GBモデルでは、Unity エディター、ビルドプロセス、テスト実行を同時に行うと頻繁にメモリ不足が発生し、開発効率が大幅に低下していました。2024年後半から16GBが標準となったことで、この問題が解決されました。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>💰 最低価格帯のモデル詳細</h3>
+                
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">MacBook Air M3 16GB/256GB</div>
+                        <div class="price-tag">約13.2万円</div>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">CPU</div>
+                            <div class="spec-value">Apple M3チップ<br>（8コア）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">GPU</div>
+                            <div class="spec-value">8コアGPU<br>（Metal対応）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">メモリ</div>
+                            <div class="spec-value">16GB<br>（Unity推奨満足）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ストレージ</div>
+                            <div class="spec-value">256GB SSD<br>（最低限）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">重量</div>
+                            <div class="spec-value">1.24kg<br>（持ち運び重視）</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">MacBook Air M4 16GB/256GB</div>
+                        <div class="price-tag">約14.2万円</div>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">CPU</div>
+                            <div class="spec-value">Apple M4チップ<br>（10コア）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">GPU</div>
+                            <div class="spec-value">8コアGPU<br>（M3より高性能）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">メモリ</div>
+                            <div class="spec-value">16GB</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ストレージ</div>
+                            <div class="spec-value">256GB SSD</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">追加機能</div>
+                            <div class="spec-value">Apple Intelligence<br>対応</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-chart">
+                    <h4>🎮 実際の開発能力評価</h4>
+                    <div class="chart-bar">
+                        <div class="chart-label">小〜中規模2D開発</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 90%;"></div>
+                        </div>
+                        <div class="chart-value">快適</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">シンプル3D開発</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill good" style="width: 70%;"></div>
+                        </div>
+                        <div class="chart-value">可能</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">アセットインポート</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill good" style="width: 75%;"></div>
+                        </div>
+                        <div class="chart-value">標準的</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">ビルド時間</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill fair" style="width: 60%;"></div>
+                        </div>
+                        <div class="chart-value">中程度</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>最低価格帯のMacでのUnity開発は「軽自動車での長距離ドライブ」のようなものです。目的地（ゲーム完成）には確実に到達できますが、荷物（プロジェクトサイズ）が多すぎると窮屈になり、山道（複雑な3D処理）では速度が落ちることがあります。しかし、燃費（コストパフォーマンス）は抜群で、初心者ドライバー（開発者）には十分な性能を提供します。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> 13-14万円台のMacは、Unity学習や小規模開発には十分な性能を持ち、開発者としてのスタートラインに立つための最もコストパフォーマンスに優れた選択肢です。
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">快適な開発環境を実現する理想スペック：17-18万円台</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> Unity開発で推奨される512GB以上のSSDを搭載したモデルは約17.3万円からとなり、ストレージ不足のストレスなく快適な開発環境を実現できます。
+            </div>
+
+            <div class="background-box">
+                <h3>🚀 512GB SSDが解決するストレージ問題</h3>
+                <p>Unity開発では、プロジェクトファイル、アセット、ビルドデータ、キャッシュファイルなどが大量に生成されます。256GBのSSDでは、複数のプロジェクトを並行して開発したり、大容量のアセット（3Dモデル、高解像度テクスチャ、音声ファイル）を使用する際に、すぐに容量不足となってしまいます。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>⚡ 理想スペックモデルの詳細</h3>
+                
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">MacBook Air M4 16GB/512GB</div>
+                        <div class="price-tag">約17.3万円</div>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">CPU</div>
+                            <div class="spec-value">Apple M4チップ<br>（10コア）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">GPU</div>
+                            <div class="spec-value">10コアGPU<br>（より高性能）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">メモリ</div>
+                            <div class="spec-value">16GB</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ストレージ</div>
+                            <div class="spec-value">512GB SSD<br>（推奨容量）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">特徴</div>
+                            <div class="spec-value">バランス重視<br>構成</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">MacBook Air M3 15インチ 16GB/512GB</div>
+                        <div class="price-tag">約18.5万円</div>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">CPU</div>
+                            <div class="spec-value">Apple M3チップ<br>（8コア）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">GPU</div>
+                            <div class="spec-value">10コアGPU</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">メモリ</div>
+                            <div class="spec-value">16GB</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ストレージ</div>
+                            <div class="spec-value">512GB SSD</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">画面</div>
+                            <div class="spec-value">15.3インチ<br>（開発作業向け）</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-chart">
+                    <h4>🚀 開発効率の向上点</h4>
+                    <div class="chart-bar">
+                        <div class="chart-label">ストレージ余裕</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 95%;"></div>
+                        </div>
+                        <div class="chart-value">複数PJ管理</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">アセット管理</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 90%;"></div>
+                        </div>
+                        <div class="chart-value">大容量対応</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">ビルド効率</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 85%;"></div>
+                        </div>
+                        <div class="chart-value">安定処理</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">バックアップ</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill good" style="width: 80%;"></div>
+                        </div>
+                        <div class="chart-value">領域確保</div>
+                    </div>
+                </div>
+
+                <div class="background-box">
+                    <h4>📊 容量使用例（512GB構成）</h4>
+                    <p>
+                        <span class="highlight">Unity エディター: 約8GB</span><br>
+                        <span class="highlight">中規模プロジェクト×3個: 約150GB</span><br>
+                        <span class="highlight">アセットライブラリ: 約100GB</span><br>
+                        <span class="highlight">システム・アプリケーション: 約100GB</span><br>
+                        <span class="highlight">作業用空き容量: 約150GB</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>512GB SSDを搭載したMacでの開発は「十分な収納スペースがある工房」のようなものです。道具（開発ツール）、材料（アセット）、作品（プロジェクト）をすべて整理して保管でき、新しいプロジェクトを始める際も、既存の作品を片付ける必要がありません。作業効率が格段に向上し、創造性に集中できる環境が整います。</p>
+            </div>
+
+            <div class="recommendation-box">
+                <h3>👑 最推奨モデル</h3>
+                <p><strong>MacBook Air M4 16GB/512GB（約17.3万円）</strong>が最もバランスが取れており、初心者から中級者まで幅広い開発者に推奨できるコストパフォーマンス最優秀モデルです。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> 17-18万円台のMacは、Unity開発における「快適性」と「効率性」を両立し、長期的な開発活動を支える理想的な投資となります。
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">プロフェッショナル開発向け高性能モデル：20万円台以上</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> MacBook Proシリーズ（20万円台以上）は、商用ゲーム開発や大規模プロジェクトに必要な高性能GPU、追加ポート、ProMotionディスプレイを提供し、プロフェッショナルレベルの開発環境を実現します。
+            </div>
+
+            <div class="background-box">
+                <h3>🏆 プロ開発環境の必要性</h3>
+                <p>商用ゲーム開発では、複雑な3Dシーン、リアルタイムレンダリング、大量のアセット処理、長時間のビルド作業が日常的に発生します。また、外部ディスプレイ、開発デバイス、ストレージなどの周辺機器との接続も頻繁に行われるため、MacBook Airの限られたポート数では制約となることがあります。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>🏆 プロフェッショナルモデルの詳細</h3>
+                
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">MacBook Pro M4 14インチ 16GB/512GB</div>
+                        <div class="price-tag">約20.9万円</div>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">CPU</div>
+                            <div class="spec-value">Apple M4チップ<br>（10コア）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">GPU</div>
+                            <div class="spec-value">10コアGPU<br>（Pro仕様）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">メモリ</div>
+                            <div class="spec-value">16GB</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ストレージ</div>
+                            <div class="spec-value">512GB SSD</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ディスプレイ</div>
+                            <div class="spec-value">Liquid Retina XDR<br>（ProMotion 120Hz）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ポート</div>
+                            <div class="spec-value">Thunderbolt 4×3<br>HDMI、SDカード</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="background-box">
+                    <h4>⚡ プロレベルの開発能力</h4>
+                    <p>
+                        <span class="highlight">高度な3Dレンダリング:</span> リアルタイムレイトレーシング対応<br>
+                        <span class="highlight">VR/AR開発:</span> 高性能GPUによる快適な開発環境<br>
+                        <span class="highlight">マルチプラットフォームビルド:</span> iOS、Android、PC同時ビルド<br>
+                        <span class="highlight">外部ディスプレイ:</span> 4K/6K外部モニター複数台接続
+                    </p>
+                </div>
+
+                <div class="performance-chart">
+                    <h4>🎯 プロ開発での実用例</h4>
+                    <div class="chart-bar">
+                        <div class="chart-label">大規模RPG開発</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 95%;"></div>
+                        </div>
+                        <div class="chart-value">優秀</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">モバイルゲーム開発</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 100%;"></div>
+                        </div>
+                        <div class="chart-value">最適</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">VRコンテンツ制作</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 90%;"></div>
+                        </div>
+                        <div class="chart-value">対応</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">商用リリース準備</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill excellent" style="width: 95%;"></div>
+                        </div>
+                        <div class="chart-value">完璧</div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">上位構成モデル（カスタマイズ）</div>
+                        <div class="price-tag">30-40万円台</div>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">メモリ</div>
+                            <div class="spec-value">32GB以上<br>（大規模PJ対応）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">ストレージ</div>
+                            <div class="spec-value">1TB以上<br>（大容量アセット）</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">対象</div>
+                            <div class="spec-value">エンタープライズ<br>開発</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>MacBook Proでの開発は「プロ仕様の建築設計事務所」のようなものです。高性能なCADソフト（Unity Pro機能）、大型プロッター（外部ディスプレイ）、専門機材（開発デバイス）がすべて揃っており、大規模な建築プロジェクト（商用ゲーム）から細かな住宅設計（インディーゲーム）まで、あらゆる案件に対応できる万全の環境が整っています。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> 20万円台以上のMacBook Proは、Unity開発を職業とする開発者や、商用リリースを目指すシリアスな開発者にとって、投資に見合う価値を提供する本格的な開発マシンです。
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">学割活用による大幅コストダウンの可能性</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> Apple の学生・教職員向け割引を活用することで、通常価格から約1-2万円の割引が適用され、Unity開発用Macをより手頃な価格で購入できます。
+            </div>
+
+            <div class="background-box">
+                <h3>🎓 学割制度の教育的価値</h3>
+                <p>Apple は教育機関に在籍する学生や教職員に対して特別価格を提供しており、これはUnity学習を始める学生にとって大きなメリットとなります。特に、プログラミングやゲーム開発を学ぶ学生にとって、初期投資の軽減は学習継続の重要な要因となります。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>🎓 学割適用時の価格例</h3>
+                
+                <div class="student-discount">
+                    <h4>💰 一般的な学割率</h4>
+                    <p>
+                        <span class="discount-amount">MacBook Air: 約8,000-15,000円割引</span>
+                        <span class="discount-amount">MacBook Pro: 約10,000-20,000円割引</span>
+                        <span class="discount-amount">割引率: 約5-8%程度</span>
+                    </p>
+                </div>
+
+                <div class="comparison-table">
+                    <div class="table-header">学割適用後の推定価格</div>
+                    <div class="table-row">
+                        <div class="model-cell">モデル</div>
+                        <div class="price-cell">通常価格</div>
+                        <div class="price-cell">学割価格</div>
+                        <div class="price-cell">割引額</div>
+                        <div class="price-cell">お得度</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="model-cell">MacBook Air M4 16GB/256GB</div>
+                        <div class="price-cell">14.2万円</div>
+                        <div class="price-cell">13万円台</div>
+                        <div class="price-cell">約1.2万円</div>
+                        <div class="rating-stars">★★★★☆</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="model-cell">MacBook Air M4 16GB/512GB</div>
+                        <div class="price-cell">17.3万円</div>
+                        <div class="price-cell">16万円台</div>
+                        <div class="price-cell">約1.3万円</div>
+                        <div class="rating-stars">★★★★★</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="model-cell">MacBook Pro M4 16GB/512GB</div>
+                        <div class="price-cell">20.9万円</div>
+                        <div class="price-cell">19万円台</div>
+                        <div class="price-cell">約1.9万円</div>
+                        <div class="rating-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="student-discount">
+                    <h4>📚 学割利用の条件と方法</h4>
+                    <p>
+                        <span class="highlight">対象者:</span> 大学生、大学院生、専門学校生、教職員<br>
+                        <span class="highlight">購入方法:</span> Apple Store教育機関向けサイト、Apple Store店舗<br>
+                        <span class="highlight">必要書類:</span> 学生証、在学証明書等<br>
+                        <span class="highlight">分割払い:</span> Paidy分割払いとの併用も可能
+                    </p>
+                </div>
+
+                <div class="background-box">
+                    <h4>💡 追加メリット</h4>
+                    <p>
+                        <span class="highlight">AppleCare+割引:</span> 保証サービスも学割価格<br>
+                        <span class="highlight">ソフトウェア割引:</span> Final Cut Pro、Logic Proなども学割対象<br>
+                        <span class="highlight">アクセサリ割引:</span> Magic Mouse、キーボードなども対象
+                    </p>
+                </div>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>学割の活用は「学生専用の特別チケット」のようなものです。同じ映画（Mac）を見るのに、一般料金（通常価格）を払う必要がなく、学生証を提示するだけで割引料金（学割価格）で楽しめます。この「学生特権」を活用しないのは、せっかくの機会を逃すことになります。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> 学割の活用により、Unity開発用Macの購入ハードルが大幅に下がり、学生にとってより現実的な選択肢となります。
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Unity開発における各モデルの実用性とコストパフォーマンス</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> Unity開発用途では、MacBook Air M4 16GB/512GB（約17万円）が最もバランスが取れており、初心者から中級者まで幅広い開発者に推奨できるコストパフォーマンス最優秀モデルです。
+            </div>
+
+            <div class="background-box">
+                <h3>⚖️ バランス重視の投資戦略</h3>
+                <p>Unity開発では、「必要十分な性能」と「将来への拡張性」のバランスが重要です。過度に高性能なマシンは初期投資が大きく、逆に性能不足のマシンは開発効率の低下を招きます。また、Unity の技術進歩やプロジェクトの成長に対応できる「成長余地」も考慮する必要があります。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>📊 用途別推奨モデル比較</h3>
+                
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">学習・趣味開発者向け</div>
+                        <div class="price-tag">約13.2万円</div>
+                    </div>
+                    <p><strong>推奨:</strong> MacBook Air M3 16GB/256GB<br>
+                    <strong>理由:</strong> 基本学習には十分、コスト最優先<br>
+                    <strong>制限:</strong> 大規模プロジェクトは困難</p>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">本格的な個人開発者向け</div>
+                        <div class="price-tag">約17.3万円</div>
+                    </div>
+                    <p><strong>推奨:</strong> MacBook Air M4 16GB/512GB<br>
+                    <strong>理由:</strong> 快適性と将来性のベストバランス<br>
+                    <strong>メリット:</strong> ほぼすべての開発シナリオに対応</p>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">
+                        <div class="model-name">プロ・商用開発者向け</div>
+                        <div class="price-tag">約20.9万円</div>
+                    </div>
+                    <p><strong>推奨:</strong> MacBook Pro M4 16GB/512GB<br>
+                    <strong>理由:</strong> 高性能GPU、豊富なポート、プロ仕様ディスプレイ<br>
+                    <strong>対象:</strong> 収益化を目指す本格開発</p>
+                </div>
+
+                <div class="comparison-table">
+                    <div class="table-header">⚖️ コストパフォーマンス分析</div>
+                    <div class="table-row">
+                        <div class="model-cell">モデル</div>
+                        <div class="price-cell">価格</div>
+                        <div class="price-cell">Unity性能</div>
+                        <div class="price-cell">将来性</div>
+                        <div class="price-cell">CP評価</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="model-cell">M3 Air 256GB</div>
+                        <div class="price-cell">13.2万円</div>
+                        <div class="rating-stars">★★★☆☆</div>
+                        <div class="rating-stars">★★☆☆☆</div>
+                        <div class="rating-stars">★★★★☆</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="model-cell">M4 Air 512GB</div>
+                        <div class="price-cell">17.3万円</div>
+                        <div class="rating-stars">★★★★☆</div>
+                        <div class="rating-stars">★★★★☆</div>
+                        <div class="rating-stars">★★★★★</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="model-cell">M4 Pro 512GB</div>
+                        <div class="price-cell">20.9万円</div>
+                        <div class="rating-stars">★★★★★</div>
+                        <div class="rating-stars">★★★★★</div>
+                        <div class="rating-stars">★★★☆☆</div>
+                    </div>
+                </div>
+
+                <div class="student-discount">
+                    <h4>🎯 実際の開発者の声</h4>
+                    <p>
+                        「M4 Air 512GBで中規模3Dゲームも快適に開発できている」<br>
+                        「256GBは半年で容量不足になった」[実用者レビュー]<br>
+                        「Proの120Hzディスプレイは開発効率が明らかに向上」
+                    </p>
+                </div>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>Unity開発用Macの選択は「料理人の包丁選び」に似ています。初心者には高品質な万能包丁（M4 Air 512GB）が最適で、ほとんどの料理（開発プロジェクト）に対応できます。プロの料理人（商用開発者）には専門的な包丁セット（MacBook Pro）が必要ですが、家庭料理（趣味開発）なら基本的な包丁（M3 Air 256GB）でも十分美味しい料理が作れます。</p>
+            </div>
+
+            <div class="recommendation-box">
+                <h3>🏆 総合推奨結論</h3>
+                <p>Unity開発におけるMac選択では、現在のスキルレベルだけでなく、将来の成長と開発目標を考慮した「成長投資」の視点が重要であり、<strong>MacBook Air M4 16GB/512GB（約17.3万円）</strong>がその最適解となります。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> Unity開発におけるMac選択では、現在のスキルレベルだけでなく、将来の成長と開発目標を考慮した「成長投資」の視点が重要であり、M4 Air 512GBがその最適解となります。
+            </div>
+        </section>
+
+        <footer class="final-summary">
+            <h2>🎯 投資判断の総合結論</h2>
+            <p>Unity開発用Macの価格分析により、技術的適合性、経済的合理性、教育投資価値のすべてを考慮した最適な選択基準が明確になりました。特に<strong>MacBook Air M4 16GB/512GB（約17.3万円）</strong>は、コストパフォーマンスと将来への成長性を両立する理想的な投資として、現代のデジタルクリエイティブ教育における重要な基盤となります。学割活用により更なるコスト削減も可能で、Unity開発者としてのキャリア形成における価値ある投資となるでしょう。</p>
+        </footer>
+    </div>
+
+
+</body></html>

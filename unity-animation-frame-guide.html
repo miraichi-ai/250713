@@ -1,0 +1,841 @@
+<!DOCTYPE html><html lang="ja"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity アニメーションフレーム完全攻略ガイド</title>
+    
+    <!-- Mermaid.js の読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'base',
+                securityLevel: 'loose',
+                fontFamily: '"Kaisei Decol", sans-serif',
+                themeVariables: {
+                    primaryColor: '#3F77BF',
+                    primaryTextColor: '#fff',
+                    primaryBorderColor: '#F2798F',
+                    lineColor: '#34BFBF',
+                    secondaryColor: '#F2C641',
+                    tertiaryColor: '#F2D1CE'
+                },
+                flowchart: {
+                    cornerRadius: 15,
+                    curve: 'cardinal',
+                    htmlLabels: true
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        :root {
+            --main-color: #4CAF50;
+            --accent-1: #9575CD;
+            --accent-2: #FFC107;
+            --accent-3: #009688;
+            --accent-4: #E91E63;
+            --bg-color: #FAFAFA;
+            --text-dark: #333;
+            --text-light: #666;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            --border-radius: 16px;
+            --golden-ratio: 1.618;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e8f5e8 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: calc(var(--border-radius) * var(--golden-ratio));
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-3) 100%);
+            color: white;
+            padding: calc(30px * var(--golden-ratio));
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .header-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .header h1 {
+            font-size: calc(2.5em / var(--golden-ratio));
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .overview {
+            background: linear-gradient(45deg, var(--accent-2) 0%, #fff7d1 100%);
+            padding: calc(25px * var(--golden-ratio));
+            margin: 30px;
+            border-radius: var(--border-radius);
+            border-left: 8px solid var(--accent-2);
+            position: relative;
+        }
+
+        .overview::before {
+            content: '💡';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2em;
+        }
+
+        .workflow-container {
+            margin: 40px 20px;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .section {
+            padding: calc(30px * var(--golden-ratio));
+            border-bottom: 2px solid #f0f0f0;
+            position: relative;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: calc(25px * var(--golden-ratio));
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--main-color);
+            position: relative;
+        }
+
+        .section-number {
+            background: var(--main-color);
+            color: white;
+            width: calc(50px * var(--golden-ratio));
+            height: calc(50px * var(--golden-ratio));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: calc(1.8em * var(--golden-ratio));
+            color: var(--main-color);
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-3) 100%);
+            color: white;
+            padding: calc(20px * var(--golden-ratio));
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .conclusion-box::before {
+            content: '🎯';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1.5em;
+        }
+
+        .background-box {
+            background: linear-gradient(135deg, var(--accent-1) 0%, #e8d8f5 100%);
+            color: white;
+            padding: calc(20px * var(--golden-ratio));
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .background-box::before {
+            content: '📚';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5em;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, var(--accent-2) 0%, #fff8dc 100%);
+            border: 3px solid var(--accent-2);
+            border-radius: var(--border-radius);
+            padding: calc(20px * var(--golden-ratio));
+            margin: 25px 0;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .example-box::before {
+            content: '⚡';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5em;
+            color: var(--accent-2);
+        }
+
+        .metaphor-box {
+            background: linear-gradient(135deg, var(--accent-4) 0%, #fce8f3 100%);
+            color: white;
+            padding: calc(20px * var(--golden-ratio));
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            border-left: 8px solid var(--accent-4);
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .metaphor-box::before {
+            content: '🎭';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5em;
+        }
+
+        .step-container {
+            margin: 30px 0;
+        }
+
+        .step-item {
+            background: white;
+            border: 3px solid var(--main-color);
+            border-radius: var(--border-radius);
+            padding: calc(20px * var(--golden-ratio));
+            margin: 20px 0;
+            position: relative;
+            padding-left: 80px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .step-item::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--main-color);
+            color: white;
+            width: calc(40px * var(--golden-ratio));
+            height: calc(40px * var(--golden-ratio));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .step-list {
+            counter-reset: step-counter;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, var(--accent-2), #fff9c4);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(calc(300px / var(--golden-ratio)), 1fr));
+            gap: calc(20px * var(--golden-ratio));
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border: 3px solid var(--accent-3);
+            border-radius: var(--border-radius);
+            padding: calc(20px * var(--golden-ratio));
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-3), var(--main-color));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: calc(3em * var(--golden-ratio));
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .unity-interface {
+            background: #f8f9fa;
+            border: 2px solid var(--accent-1);
+            border-radius: var(--border-radius);
+            padding: calc(20px * var(--golden-ratio));
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .unity-interface::before {
+            content: '🖥️';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5em;
+        }
+
+        .interface-element {
+            background: white;
+            border: 2px solid var(--accent-3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .interface-element::before {
+            content: '🔧';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: var(--accent-3);
+        }
+
+        .warning-box {
+            background: #fff8e1;
+            border: 3px solid #ff9800;
+            border-radius: var(--border-radius);
+            padding: calc(20px * var(--golden-ratio));
+            margin: 25px 0;
+            border-left: 8px solid #ff9800;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5em;
+        }
+
+        .animation-demo {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            border: 3px solid #2196f3;
+            border-radius: var(--border-radius);
+            padding: calc(30px * var(--golden-ratio));
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .ball-animation {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #d63031);
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: bounce 2s infinite ease-in-out;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            50% { transform: translateY(-60px) scaleY(0.8); }
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: calc(20px * var(--golden-ratio));
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-block::before {
+            content: 'Unity Script';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.8em;
+            color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 12px;
+            }
+            
+            .header {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-item {
+                padding-left: 70px;
+            }
+            
+            .section-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+        }
+
+        .final-summary {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-3) 50%, var(--accent-1) 100%);
+            color: white;
+            padding: calc(40px * var(--golden-ratio));
+            text-align: center;
+            position: relative;
+        }
+
+        .final-summary::before {
+            content: '🌟';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 2em;
+        }
+
+        .final-summary::after {
+            content: '🚀';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="header-icon">🎬</span>
+            <h1>Unity アニメーションフレーム完全攻略ガイド</h1>
+            <p>小学生でもわかる！Unity アニメーション作成の基本から実践まで</p>
+        </header>
+
+        <div class="overview">
+            <h2>📋 学習の全体像</h2>
+            <p>このガイドでは、Unity でのアニメーション作成を「アニメーションフレームとは何か」から「実際にボールが跳ねるアニメーション作成」まで、段階的に学習します。パラパラ漫画の原理から最新のデジタルアニメーション技術まで、わかりやすく解説します。</p>
+        </div>
+
+        <div class="workflow-container">
+            <h3>🗺️ Unity アニメーション学習フローチャート</h3>
+            <div class="mermaid">
+                flowchart TD
+                    A["🎨 アニメーションフレームの基本概念"] --&gt; B["🛠️ Unity Animation Window の準備"]
+                    B --&gt; C["⭐ キーフレーム技術の理解"]
+                    C --&gt; D["🏀 実践：ボールアニメーション作成"]
+                    D --&gt; E["🎬 高度な技術への応用"]
+                    
+                    A1["📚 パラパラ漫画の原理"] --&gt; A
+                    A2["🎞️ フレームレートの概念"] --&gt; A
+                    A3["💡 デジタルアニメーション"] --&gt; A
+                    
+                    B1["🖥️ Animation Window表示"] --&gt; B
+                    B2["📦 オブジェクト準備"] --&gt; B
+                    B3["⚙️ 画面レイアウト設定"] --&gt; B
+                    
+                    C1["⏰ タイムライン操作"] --&gt; C
+                    C2["📍 重要ポイント設定"] --&gt; C
+                    C3["🔄 自動補間機能"] --&gt; C
+                    
+                    D1["🎯 位置変更アニメーション"] --&gt; D
+                    D2["🌊 滑らかな動き調整"] --&gt; D
+                    D3["✨ 物理的リアリティ"] --&gt; D
+                    
+                    style A fill:#4CAF50,stroke:#333,stroke-width:3px,color:#fff
+                    style D fill:#E91E63,stroke:#333,stroke-width:3px,color:#fff
+                    style B fill:#FFC107,stroke:#333,stroke-width:2px
+                    style C fill:#9575CD,stroke:#333,stroke-width:2px,color:#fff
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">アニメーションフレームって何？小学生でもわかる基本の「き」</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> アニメーションフレームとは、パラパラ漫画の1枚1枚のページのようなもので、これを連続して表示することで動いているように見せる技術です。
+            </div>
+
+            <div class="background-box">
+                <h3>🎯 アニメーションの基本原理</h3>
+                <p>アニメーションの基本原理は、静止画を高速で切り替えることで動きの錯覚を作り出すことです。Unity では、この原理をデジタル技術で実現し、ゲームやアプリケーションで使用できるアニメーションを作成できます。人間の目は1秒間に24枚以上の画像を見ると、それが連続した動きとして認識される特性があります。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>🎬 アニメーションフレームの仕組み</h3>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">⏱️</span>
+                        <h4>フレームレート</h4>
+                        <p><span class="highlight">1秒間に30フレーム</span>: 1秒間に30枚の絵を表示すると滑らかな動きに見える</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔑</span>
+                        <h4>キーフレーム</h4>
+                        <p><span class="highlight">重要な動きのポイント</span>を記録する特別なフレーム</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔄</span>
+                        <h4>中間フレーム</h4>
+                        <p><span class="highlight">キーフレーム間の動き</span>を自動で計算して作成される</p>
+                    </div>
+                </div>
+
+                <div class="unity-interface">
+                    <h4>📚 身近な例で理解しよう</h4>
+                    <div class="interface-element">
+                        <strong>パラパラ漫画：</strong> ノートの端に少しずつ違う絵を描いて、ページをめくると動いて見える
+                    </div>
+                    <div class="interface-element">
+                        <strong>アニメ映画：</strong> 1秒間に24枚の絵を描いて、それを連続再生している
+                    </div>
+                    <div class="interface-element">
+                        <strong>GIF アニメ：</strong> インターネットでよく見る動く画像
+                    </div>
+                </div>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>アニメーションフレームは「写真のアルバム」のようなものです。家族旅行の写真を1枚ずつ見ると静止画ですが、高速でパラパラめくると、まるで動画のように家族が動いているように見えます。Unity のアニメーションも同じ原理で、コンピューターが高速で「写真」を切り替えて動きを作り出しています。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> アニメーションフレームの概念を理解することで、Unity でのアニメーション作成の基礎が身につき、より効果的な動きを作成できるようになります。
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Unity でアニメーションを作る準備：必要なものと画面の見方</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> Unity でアニメーションを作成するには、Animation Window という専用の画面を使用し、動かしたいオブジェクトを準備するだけで始められます。
+            </div>
+
+            <div class="background-box">
+                <h3>🎨 Unity のアニメーション制作環境</h3>
+                <p>Unity は初心者でも使いやすいように設計されており、複雑なプログラミング知識がなくても、視覚的な操作でアニメーションを作成できます。Animation Window は、時間軸に沿ってオブジェクトの変化を記録・編集する専用ツールです。プロのアニメーターが使用する技術を、誰でも簡単に使えるようにデジタル化されています。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>🛠️ 必要な準備</h3>
+                
+                <div class="step-list">
+                    <div class="step-item">
+                        <strong>Unity エディターの起動</strong><br>
+                        Unity Hub から新しいプロジェクトを作成し、<span class="highlight">3D テンプレート</span>を選択（最も基本的で使いやすい）
+                    </div>
+                    <div class="step-item">
+                        <strong>Animation Window の表示</strong><br>
+                        メニューバーから<span class="highlight">「Window」→「Animation」→「Animation」</span>を選択し、画面下部に Animation Window を表示
+                    </div>
+                    <div class="step-item">
+                        <strong>動かすオブジェクトの準備</strong><br>
+                        Hierarchy で右クリック→<span class="highlight">「3D Object」→「Cube」</span>を選択し、Scene ビューに立方体を表示
+                    </div>
+                </div>
+
+                <div class="unity-interface">
+                    <h4>📱 Animation Window の画面構成</h4>
+                    <div class="interface-element">
+                        <strong>タイムライン：</strong> 時間の流れを表示する横軸（映画の時間軸のようなもの）
+                    </div>
+                    <div class="interface-element">
+                        <strong>プロパティリスト：</strong> 動かせる要素（位置、回転、大きさなど）の一覧
+                    </div>
+                    <div class="interface-element">
+                        <strong>キーフレーム：</strong> 動きの重要なポイントを示すダイヤモンド型のマーク
+                    </div>
+                    <div class="interface-element">
+                        <strong>再生ボタン：</strong> 作成したアニメーションを確認するためのコントロール
+                    </div>
+                </div>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>Unity の Animation Window は「音楽の楽譜」のようなものです。楽譜には時間軸（小節）があり、各楽器（オブジェクトのプロパティ）がいつ、どの音（値）を出すかが記録されています。Animation Window も同様に、時間軸に沿ってオブジェクトがいつ、どのような状態になるかを記録します。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> Unity の Animation Window は直感的で使いやすく設計されており、基本的な準備を整えれば誰でもアニメーション作成を始められます。
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">キーフレームの魔法：時間を操ってオブジェクトを動かそう</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> キーフレームは、アニメーションの「重要な瞬間」を記録する機能で、これを設定することでオブジェクトが自動的に滑らかに動くようになります。
+            </div>
+
+            <div class="background-box">
+                <h3>⭐ キーフレームアニメーションの革新性</h3>
+                <p>キーフレームアニメーションは、プロのアニメーターが使用する技術をデジタル化したものです。重要なポーズや位置だけを指定すれば、コンピューターが自動的に中間の動きを計算してくれるため、効率的にアニメーションを作成できます。これにより、従来は専門技術が必要だった複雑なアニメーションも、誰でも簡単に作成できるようになりました。</p>
+            </div>
+
+            <div class="example-box">
+                <h3>⚡ キーフレームの設定方法</h3>
+                
+                <div class="step-list">
+                    <div class="step-item">
+                        <strong>最初のキーフレーム設定</strong><br>
+                        タイムラインの<span class="highlight">0:00の位置</span>にカーソルを合わせ、オブジェクトを初期位置に配置し、<span class="highlight">「録画ボタン」（赤い丸）</span>をクリックして現在の状態をキーフレームとして記録
+                    </div>
+                    <div class="step-item">
+                        <strong>2番目のキーフレーム設定</strong><br>
+                        タイムラインの<span class="highlight">1:00の位置</span>にカーソルを移動し、オブジェクトを別の位置に移動すると、自動的に新しいキーフレームが作成される
+                    </div>
+                    <div class="step-item">
+                        <strong>アニメーションの確認</strong><br>
+                        再生ボタンを押すと、オブジェクトが自動的に移動し、2つのキーフレーム間が滑らかに補間される
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">📍</span>
+                        <h4>Position（位置）</h4>
+                        <p>オブジェクトのX, Y, Z座標の変化</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔄</span>
+                        <h4>Rotation（回転）</h4>
+                        <p>オブジェクトの向きや角度の変化</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📏</span>
+                        <h4>Scale（大きさ）</h4>
+                        <p>オブジェクトのサイズの拡大・縮小</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎨</span>
+                        <h4>Color（色）</h4>
+                        <p>オブジェクトの色の変化（マテリアルがある場合）</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ キーフレーム設定のコツ</h3>
+                <p>効果的なアニメーションを作るには、キーフレームを設定する<strong>タイミング</strong>が重要です。動きの始まり、変化のピーク、動きの終わりなど、重要なポイントだけを設定し、中間の動きはUnityに自動計算させることで、自然で滑らかなアニメーションが生まれます。</p>
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>キーフレームは「道案内の目印」のようなものです。「学校から公園まで行く」とき、「学校を出て」「角を曲がって」「公園に到着」という重要なポイント（キーフレーム）だけを覚えておけば、その間の細かい歩き方は自然にできます。Unity も同様に、重要なポイントだけを指定すれば、その間の動きは自動的に計算してくれます。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> キーフレームの概念を理解し、適切に設定することで、複雑なアニメーションも簡単に作成でき、Unity でのアニメーション制作の基礎が身につきます。
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">実際にやってみよう：ボールが跳ねるアニメーション作成</h2>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>結論：</strong> ボールが跳ねるアニメーションは、Unity アニメーションの基本的な技術をすべて学べる最適な練習課題です。
+            </div>
+
+            <div class="background-box">
+                <h3>🏀 なぜボールのアニメーションなのか</h3>
+                <p>ボールの跳ねるアニメーションは、位置の変化、重力の表現、タイミングの調整など、アニメーションの基本要素がすべて含まれています。Unity Learn でも推奨されている初心者向けの練習課題で、これをマスターすることで、より複雑なキャラクターアニメーションの基礎が身につきます。</p>
+            </div>
+
+            <div class="animation-demo">
+                <h4>🎬 完成イメージ</h4>
+                <div class="ball-animation"></div>
+                <p>このような滑らかで自然な跳ねる動きを作成します</p>
+            </div>
+
+            <div class="example-box">
+                <h3>🏀 ボールが跳ねるアニメーション作成手順</h3>
+                
+                <div class="step-list">
+                    <div class="step-item">
+                        <strong>ボールオブジェクトの作成</strong><br>
+                        Hierarchy で右クリック→<span class="highlight">「3D Object」→「Sphere」</span>を選択し、Scene ビューに球体を表示。名前を<span class="highlight">「BouncingBall」</span>に変更
+                    </div>
+                    <div class="step-item">
+                        <strong>アニメーションクリップの作成</strong><br>
+                        BouncingBall を選択した状態で Animation Window を開き、<span class="highlight">「Create」ボタン</span>をクリック。<span class="highlight">「BounceAnimation」</span>という名前で保存
+                    </div>
+                    <div class="step-item">
+                        <strong>キーフレームの設定</strong><br>
+                        <span class="highlight">0:00秒</span>: ボールを地面の位置（Y=0）に配置<br>
+                        <span class="highlight">0:30秒</span>: ボールを最高点（Y=3）に配置<br>
+                        <span class="highlight">1:00秒</span>: ボールを再び地面（Y=0）に配置
+                    </div>
+                    <div class="step-item">
+                        <strong>アニメーションカーブの調整</strong><br>
+                        Animation Window で<span class="highlight">「Curves」モード</span>に切り替え、Y軸の動きカーブを調整して、重力らしい動きを作成
+                    </div>
+                </div>
+
+                <div class="unity-interface">
+                    <h4>⚙️ より自然な動きにするコツ</h4>
+                    <div class="interface-element">
+                        <strong>イーズイン・イーズアウト：</strong> 動きの始まりと終わりを滑らかにする
+                    </div>
+                    <div class="interface-element">
+                        <strong>スクワッシュ・ストレッチ：</strong> 着地時にボールを少し潰して物理的リアリティを表現
+                    </div>
+                    <div class="interface-element">
+                        <strong>タイミング調整：</strong> 上昇より下降を速くして重力感を表現
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+// より高度な制御のためのC#スクリプト例
+public class BallBounce : MonoBehaviour 
+{
+    public float bounceHeight = 3f;
+    public float bounceSpeed = 2f;
+    
+    void Update() 
+    {
+        float newY = Mathf.Abs(Mathf.Sin(Time.time * bounceSpeed)) * bounceHeight;
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+    }
+}
+            </div>
+
+            <div class="metaphor-box">
+                <h3>💡 例え話</h3>
+                <p>ボールのアニメーション作成は「写真撮影」のようなものです。ボールを投げる瞬間、最高点、着地の瞬間の3枚の写真を撮って、その間をコンピューターが自動的に補完してくれます。写真の撮り方（キーフレームの設定）が上手になれば、より自然な動きの動画（アニメーション）ができあがります。</p>
+            </div>
+
+            <div class="conclusion-box">
+                <strong>再結論：</strong> ボールが跳ねるアニメーションの作成を通じて、Unity アニメーションの基本技術を実践的に習得でき、より複雑なアニメーション制作への基礎が築けます。
+            </div>
+        </section>
+
+        <footer class="final-summary">
+            <h2>🎯 学習完了！次のステップへ</h2>
+            <p>Unity アニメーションフレームの基本から実践まで、すべてをマスターしました。これらの技術を応用することで、キャラクターアニメーション、UI アニメーション、エフェクトアニメーションなど、より高度な表現が可能になります。継続的な練習と創造性で、プロレベルのアニメーション制作スキルを身につけていきましょう！</p>
+        </footer>
+    </div>
+
+
+</body></html>
